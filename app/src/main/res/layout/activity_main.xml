@@ -27,6 +27,17 @@
         app:layout_constraintVertical_bias="0.200">
 
         <Button
+            android:id="@+id/degreaseButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:onClick="decreaseCount"
+            android:text="-"
+            android:textSize="32sp" />
+
+        <Button
             android:id="@+id/increaseButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,17 +46,9 @@
             android:layout_weight="1"
             android:onClick="increaseCount"
             android:text="+"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
-        <Button
-            android:id="@+id/degreaseButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:onClick="decreaseCount"
-            android:text="-"
-            android:textSize="32sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
         model = new ViewModelProvider(this).get(MainActivityViewModel.class);
         countTextView = findViewById(R.id.countTextView);
-        countTextView.setText(String.valueOf(model.getCurrentCount()));
+        MutableLiveData<Integer> countLiveData = model.getCurrentCount();
+        countLiveData.observe(this, integer -> countTextView.setText(String.valueOf(integer)));
     }
 
     public void decreaseCount(View view) {
-        countTextView.setText(String.valueOf(model.getDecreasedCount()));
+        model.getDecreasedCount();
     }
 
     public void increaseCount(View view) {
-        countTextView.setText(String.valueOf(model.getIncreasedCount()));
+        model.getIncreasedCount();
     }
 }

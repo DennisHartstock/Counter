@@ -1,19 +1,24 @@
 package com.example.counter;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainActivityViewModel extends ViewModel {
     private int count;
+    private final MutableLiveData<Integer> countLiveData = new MutableLiveData<>();
 
-    public int getCurrentCount() {
-        return count;
+    public MutableLiveData<Integer> getCurrentCount() {
+        countLiveData.setValue(count);
+        return countLiveData;
     }
 
-    public int getDecreasedCount() {
-        return --count;
+    public void getDecreasedCount() {
+        --count;
+        countLiveData.setValue(count);
     }
 
-    public int getIncreasedCount() {
-        return ++count;
+    public void getIncreasedCount() {
+        ++count;
+        countLiveData.setValue(count);
     }
 }
